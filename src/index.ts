@@ -109,7 +109,13 @@ app.get('/', (req, res) => {
 				});
 		});
 
-		res.send(mappedData)
+		res.send({
+			seasons: mappedData[0].data,
+			ranks: mappedData[1].data,
+			operators: mappedData[2].data,
+			weapons: mappedData[3].data,
+			maps: mappedData[4].data,
+		})
 	})
 	.catch(err => {
 		res.send({ok: false, error: 'Could not fetch Ubisoft page'});
